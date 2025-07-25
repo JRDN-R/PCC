@@ -1,379 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Fill PDF Template</title>
-  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
- <!-- your existing HTML sections here… -->
-  <title>Aircraft Over & Above / Kitting & PC O-Level Info</title>
+  <!-- Open Graph + Twitter Card for rich previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Summary | Jordan R.">
+  <meta property="og:description" content="Quick readable recap of the latest PCC meeting.">
+  <meta property="og:url" content="https://jrdn-r.github.io/PCC/">
+  <meta property="og:image" content="https://raw.githubusercontent.com/JRDN-R/PCC/main/preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Summary | Jordan R.">
+  <meta name="twitter:description" content="Quick readable recap of the latest PCC meeting.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/JRDN-R/PCC/main/preview.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trainers IPT, PCC Meeting Summary – Fri 25 Jul 2025</title>
+
   <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f8f9fa;
-      margin: 0;
-      padding: 24px;
-      color: #222;
+    :root{
+      color-scheme: light dark;
+      --bg-light:#fff; --fg-light:#000;
+      --bg-dark:#111; --fg-dark:#eee;
     }
-    h2 {
-      margin-top: 30px;
-      margin-bottom: 10px;
-      font-size: 1.3em;
-      letter-spacing: 1px;
-      font-weight: 700;
-    }
-    .section {
-      margin-bottom: 36px;
-      border-radius: 12px;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 20px;
-    }
-    .toggle-btn {
-      background: #276678;
-      color: #fff;
-      border: none;
-      padding: 5px 14px;
-      border-radius: 8px;
-      font-size: 1em;
-      cursor: pointer;
-      margin-bottom: 8px;
-      margin-right: 8px;
-      transition: background 0.2s;
-    }
-    .toggle-btn:hover {
-      background: #1687a7;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 18px;
-      font-size: 0.99em;
-      background: #fff;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-    }
-    th, td {
-      border: 1px solid #c5c5c5;
-      padding: 7px 10px;
-      text-align: center;
-    }
-    th {
-      background: #deeef5;
-      font-weight: 600;
-      letter-spacing: 1px;
-      font-size: 1em;
-    }
-    .header-row {
-      background: #e8e8e8;
-      font-weight: 700;
-      font-size: 1.08em;
-    }
-    .note {
-      font-style: italic;
-      color: #888;
-      font-size: 0.98em;
-    }
-    .usaf {
-      background: #294b4f !important;
-      color: #fff;
-      font-weight: bold;
-    }
-    .tm-col {
-      background: #fff6d1;
-      font-weight: 700;
-      font-size: 1em;
-    }
-    .highlight {
-      background: #f3f8fc;
-    }
-    .group-title {
-      font-size: 1.07em;
-      font-weight: 600;
-      color: #1d4252;
-      margin-bottom: 5px;
-      letter-spacing: 1px;
-    }
-    .desc-row td {
-      text-align: left;
-      background: #f9fafc;
-      font-size: 0.98em;
-      color: #355;
-      font-style: italic;
-      border: none;
-      padding-top: 2px;
-      padding-bottom: 2px;
-    }
+    @media (prefers-color-scheme:dark){:root{--bg:var(--bg-dark);--fg:var(--fg-dark);}}
+    @media (prefers-color-scheme:light){:root{--bg:var(--bg-light);--fg:var(--fg-light);}}
+    body{background:var(--bg);color:var(--fg);margin:0;padding:24px;font-family:system-ui,Arial,sans-serif;line-height:1.6;}
+    h1,h2{margin:0 0 16px;font-weight:700;}
+    h1{font-size:clamp(28px,6vw,36px);text-align:center;}
+    h2{font-size:clamp(20px,5vw,28px);}
+    section{margin-bottom:40px;}
+    ul,ol{margin-left:20px;padding:0;}
+    table{width:100%;border-collapse:collapse;margin-top:12px;}
+    th,td{border:1px solid #333;padding:8px;font-size:clamp(12px,4vw,16px);}
+    th{background:#000;color:#fff;}
+    tr:nth-child(odd) td{background:rgba(255,255,255,0.04);}
+    @media(max-width:600px){body{padding:12px;}}
   </style>
-  <script>
-    function toggleSection(id) {
-      var section = document.getElementById(id);
-      if (section.style.display === 'none') {
-        section.style.display = '';
-      } else {
-        section.style.display = 'none';
-      }
-    }
-  </script>
 </head>
 <body>
-  <div class="section">
-    <button class="toggle-btn" onclick="toggleSection('overabove')">Toggle OVER & ABOVE Info</button>
-    <div id="overabove">
-      <div class="group-title">T-44 C</div>
-      <table>
-        <tr class="desc-row"><td colspan="9">
-          OVER & ABOVE: T44-A92.Z301098000 &nbsp;&nbsp;&nbsp;&nbsp; OVER & ABOVE METALS: T44-A92.FD0109800S
-        </td></tr>
-        <tr>
-          <th>SEQ</th><th>BUNO</th><th>E&amp;E ORDER</th><th>UCB</th><th>MISC</th>
-          <th>SALES ORDER</th><th>PROJECT NO.</th><th>REPAIR ID</th><th class="tm-col">T/M/S</th>
-        </tr>
-        <tr>
-          <td>4B35</td><td>161075</td><td>55938994</td><td>0030</td><td>0060</td>
-          <td>55937515</td><td>1000000400820</td><td>9006552619</td><td class="tm-col">T44C</td>
-        </tr>
-      </table>
+  <h1>Trainers IPT, PCC Meeting Summary – Fri 25 Jul 2025</h1>
+  <hr>
 
-      <div class="group-title">T-6 A/B</div>
-      <table>
-        <tr class="desc-row"><td colspan="9">
-          OVER & ABOVE: T6A-A92.Z301098000, T6B-A92.Z301098000 &nbsp;&nbsp;&nbsp;&nbsp; OVER & ABOVE METALS: T6A-A92.FD0109800S, T6B-A92.FD0109800S
-        </td></tr>
-        <tr>
-          <th>SEQ</th><th>BUNO</th><th>E&amp;E ORDER</th><th>UCB</th><th>MISC</th>
-          <th>SALES ORDER</th><th>PROJECT NO.</th><th>REPAIR ID</th><th class="tm-col">T/M/S</th>
-        </tr>
-        <tr>
-          <td>6C75</td><td>166226</td><td>58117345</td><td>0030</td><td>0060</td>
-          <td>58116453</td><td>1000001790983</td><td>9007880954</td><td class="tm-col">T6B</td>
-        </tr>
-        <tr>
-          <td>6C74</td><td>165978</td><td>58097292</td><td>0030</td><td>0060</td>
-          <td>58096172</td><td>1000001784324</td><td>9007867773</td><td class="tm-col">T6A</td>
-        </tr>
-        <tr>
-          <td>6C73</td><td>166224</td><td>58092366</td><td>0030</td><td>0060</td>
-          <td>58088406</td><td>1000001780878</td><td>9007864579</td><td class="tm-col">T6B</td>
-        </tr>
-        <tr>
-          <td>6C72</td><td>166219</td><td>58012216</td><td>0030</td><td>0060</td>
-          <td>58010501</td><td>1000001713143</td><td>9007796956</td><td class="tm-col">T6B</td>
-        </tr>
-      </table>
+  <h2>1.&ensp;Priority Issues</h2>
+  <ul>
+    <li><strong>6C49</strong> rig completed; aircraft to Paint Bay 2 before lunch.</li>
+    <li><strong>6C50</strong> weight-&amp;-balance underway in ground-check; transfer still blocked by Paint-Control DOC-check—clear today to release QA.</li>
+    <li><strong>6F27</strong> finals and Samson Ops checks complete; move to ground-check by end-of-shift.</li>
+    <li><strong>6C57</strong> belly-panels finishing; ferry the wing to Strip this afternoon so paint flow starts Monday.</li>
+    <li><strong>Parts hot-list (today):</strong> 6C61 heat-exchanger & compressor P/N 93025 + MLG door P/N 101725; 6C52 relay-panel; 6C55 rudder-hinge bearing; 6C60 stab kit-boxes.</li>
+    <li><strong>Missing Robinair A/C carts</strong>—final bay still 0 / 3; blocking coolant service on 6C56 &amp; 6C50.</li>
+    <li><em>Daily Urgent-Need Sheet</em> still incomplete for several cells—submit before noon roll-up.</li>
+  </ul>
+  <hr>
 
-      <div class="group-title">USAF T-6 A/B</div>
-      <table>
-        <tr>
-          <th>SEQ</th><th>BUNO</th><th>E&amp;E ORDER</th><th>UCB</th><th>MISC</th>
-          <th>SALES ORDER</th><th>PROJECT NO.</th><th>REPAIR ID</th><th class="tm-col">T/M/S</th>
-        </tr>
-        <tr class="usaf">
-          <td>6F30</td><td>03-3674</td><td>58081346</td><td>0030</td><td>0060</td>
-          <td>58080713</td><td>1000001713458</td><td>9007860276</td><td>T6A</td>
-        </tr>
-        <tr class="usaf">
-          <td>6F29</td><td>97-3021</td><td>57962317</td><td>0030</td><td>0060</td>
-          <td>57959708</td><td>1000001700581</td><td>9007788045</td><td>T6A</td>
-        </tr>
-      </table>
-    </div>
-  </div>
+  <h2>2.&ensp;E&amp;E / Tooling Notes</h2>
+  <ul>
+    <li>Lower free-slot stripping trial starts next week (Cameron &amp; John Cannon).</li>
+    <li><strong>6C56</strong> NDI passed; REQ logged—sheet-metal plates shoot today then composites may resume.</li>
+    <li><strong>6F29</strong> second E&amp;E check complete; paperwork filing today releases aircraft to Repair.</li>
+    <li>Engine-truss inspection tool and strut-tube standards moved to weekly Management-Action tracker.</li>
+  </ul>
+  <hr>
 
-  <div class="section">
-    <button class="toggle-btn" onclick="toggleSection('kitting')">Toggle Kitting &amp; PC O-Level Info</button>
-    <div id="kitting">
-      <div class="group-title">T-44 C</div>
-      <table>
-        <tr class="desc-row"><td colspan="9">
-          OVER & ABOVE: T44-A92.Z301098000 &nbsp;&nbsp;&nbsp;&nbsp; OVER & ABOVE METALS: T44-A92.FD0109800S
-        </td></tr>
-        <tr>
-          <th>SEQ</th><th>BUNO</th><th>E&amp;E ORDER</th><th>UCB</th><th>MISC</th>
-          <th>KIT W/O</th><th>DCC#4 JON</th><th>REPAIR ID</th><th class="tm-col">T/M/S</th>
-        </tr>
-        <tr>
-          <td>4B35</td><td>161075</td><td>55938994</td><td>0030</td><td>0060</td>
-          <td>55937746</td><td>1000000318908</td><td>9006552619</td><td class="tm-col">T44C</td>
-        </tr>
-      </table>
+  <h2>3.&ensp;Aircraft Tally</h2>
+  <table>
+    <thead><tr><th>Seq</th><th>Current Status</th><th>Action / Plan</th></tr></thead>
+    <tbody>
+      <tr><td>6C73</td><td>Induction</td><td>Pre-strip queue</td></tr>
+      <tr><td>6C72</td><td>First-prime complete</td><td>Return to assembly Mon 7/28</td></tr>
+      <tr><td>6C71</td><td>Strip/prime</td><td>Post-strip next</td></tr>
+      <tr><td>6C70</td><td>Post-strip</td><td>E&amp;E queue</td></tr>
+      <tr><td>6C69</td><td>Post-strip</td><td>Await kit-box</td></tr>
+      <tr><td>6C68</td><td>Post-strip backlog</td><td>OT push to cut 5-day turn</td></tr>
+      <tr><td>6C67</td><td>Repair (lower-fwd swap REQ)</td><td>Assembly once TEI issued</td></tr>
+      <tr><td>6C66</td><td>Repair (manpower hold)</td><td>Parts-transfer list growing</td></tr>
+      <tr><td>6C65</td><td>Repair (center skins)</td><td>Composite strakes; schedule NDI</td></tr>
+      <tr><td>6C64</td><td>Repair (LH attach alt-proc)</td><td>Pull-test TEI/R&amp;Q still open</td></tr>
+      <tr><td>6C63</td><td>Repair (Group-1 attach)</td><td>NDI &amp; trim-tab back-robs</td></tr>
+      <tr><td>6C62</td><td>Repair → join-prep</td><td>ECS O&amp;A + rib-8 heat-treat; spare-cowl fit-check Sat</td></tr>
+      <tr><td>6C61</td><td>Assembly day 11/32</td><td>Cockpit wrap-up; awaiting hot-list parts</td></tr>
+      <tr><td>6C60</td><td>Assembly join done</td><td>Held in Repair for stab kits</td></tr>
+      <tr><td>6C59</td><td>Assembly day 26/47</td><td>Cockpit insulation &amp; heat-exchanger</td></tr>
+      <tr><td>6C58</td><td>Repair (priority wing)</td><td>Oversize-hole REQ out today</td></tr>
+      <tr><td>6C57</td><td>Assembly day 12/25</td><td>Wing to Strip this afternoon</td></tr>
+      <tr><td>6C56</td><td>Initial asm day 29/25</td><td>Resume rigging after plates shot</td></tr>
+      <tr><td>6C55</td><td>Initial asm day 21/25</td><td>Bleed hides, MLG ops, brake-ops</td></tr>
+      <tr><td>6C54</td><td>Ground-check (prop)</td><td>Prop change ECD Tue 7/29</td></tr>
+      <tr><td>6C53</td><td>In Paint (strip/prime)</td><td>ECD Thu 7/31; DWL incoming</td></tr>
+      <tr><td>6C52</td><td>Assembly (rivets/ports)</td><td>Relay-panel back-rob; wing tasks continue</td></tr>
+      <tr><td>6C50</td><td>Ground-check</td><td>Weight-and-balance; clear DOC-check</td></tr>
+      <tr><td>6C49</td><td>Paint cell</td><td>Surface prep starts this afternoon</td></tr>
+      <tr><td>6C48</td><td>Flight test</td><td>Delivered 25 Jul</td></tr>
+      <tr><td>6C47</td><td>Flight-test sched.</td><td>Release Mon 7/28</td></tr>
+      <tr><td>6F30</td><td>Strip (1-day slip)</td><td>Prime ECD Fri 8/01</td></tr>
+      <tr><td>6F29</td><td>Post-E&amp;E</td><td>Move to Repair Mon 7/28</td></tr>
+      <tr><td>6F28</td><td>Repair (frame-2 corrosion)</td><td>NDI after re-install</td></tr>
+      <tr><td>6F27</td><td>Final asm day 11/10</td><td>Transfer to ground-check today</td></tr>
+      <tr><td>6F26</td><td>Initial asm (AF-107 hold)</td><td>Await revised 107 (30 Jul)</td></tr>
+      <tr><td>4B35</td><td>Final assembly</td><td>Factory-therm work; mid-Sep delivery</td></tr>
+    </tbody>
+  </table>
 
-      <div class="group-title">T-6 A/B</div>
-      <table>
-        <tr class="desc-row"><td colspan="9">
-          OVER & ABOVE: T6A-A92.Z301098000, T6B-A92.Z301098000 &nbsp;&nbsp;&nbsp;&nbsp; OVER & ABOVE METALS: T6A-A92.FD0109800S, T6B-A92.FD0109800S
-        </td></tr>
-        <tr>
-          <th>SEQ</th><th>BUNO</th><th>E&amp;E ORDER</th><th>UCB</th><th>MISC</th>
-          <th>KIT W/O</th><th>DCC#4 JON</th><th>REPAIR ID</th><th class="tm-col">T/M/S</th>
-        </tr>
-        <tr>
-          <td>6C75</td><td>166226</td><td>58117345</td><td>0030</td><td>0060</td>
-          <td>58116453</td><td>1000001790983</td><td>9007880954</td><td class="tm-col">T6B</td>
-        </tr>
-        <tr>
-          <td>6C74</td><td>165978</td><td>58097292</td><td>0030</td><td>0060</td>
-          <td>58105159</td><td>1000001675516</td><td>9007867773</td><td class="tm-col">T6A</td>
-        </tr>
-        <tr>
-          <td>6C73</td><td>166224</td><td>58092366</td><td>0030</td><td>0060</td>
-          <td>58092027</td><td>1000001675515</td><td>9007864579</td><td class="tm-col">T6B</td>
-        </tr>
-        <tr>
-          <td>6C72</td><td>166219</td><td>58012216</td><td>0030</td><td>0060</td>
-          <td>58088438</td><td>1000001675514</td><td>9007796956</td><td class="tm-col">T6B</td>
-        </tr>
-      </table>
+  <hr>
 
-      <div class="group-title">USAF T-6 A/B</div>
-      <table>
-        <tr>
-          <th>SEQ</th><th>BUNO</th><th>E&amp;E ORDER</th><th>UCB</th><th>MISC</th>
-          <th>KIT W/O</th><th>DCC#4 JON</th><th>REPAIR ID</th><th class="tm-col">T/M/S</th>
-        </tr>
-        <tr class="usaf">
-          <td>6F30</td><td>03-3674</td><td>58081346</td><td>0030</td><td>0060</td>
-          <td>58080713</td><td>1000001713458</td><td>9007860276</td><td>T6A</td>
-        </tr>
-        <tr class="usaf">
-          <td>6F29</td><td>97-3021</td><td>57962317</td><td>0030</td><td>0060</td>
-          <td>57989680</td><td>1000001700582</td><td>9007788045</td><td>T6A</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-    <button id="generatePdf" style="margin:20px;padding:8px 16px">Generate PDF</button>
+  <h2>4.&ensp;Misc. Issues &amp; Plans</h2>
+  <ul>
+    <li>Lower free-slot stripping trial starts next week (Cameron &amp; John Cannon).</li>
+    <li>Shop-board standard layout draft due next week (Frank &amp; Troy).</li>
+    <li>Validation sweep: confirm base-locations &amp; work-stops in Concerto by Tue 7/29.</li>
+    <li>Spare-wing PN-232 still waiting fasteners; one ACM assigned.</li>
+    <li>Locate two failed <em>firewall yoke fittings</em> and return to TLS for re-test.</li>
+    <li>5S / PPE audit continues—hydrate and wear ear/eye protection.</li>
+  </ul>
 
-  <!-- ---------- PDF-GENERATOR (single, fixed) ---------- -->
- <!-- keep the same index.html skeleton; replace ONLY the generator script -->
-<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+  <hr>
+
+  <h2>5.&ensp;Changes Since 24 Jul 2025</h2>
+  <ul>
+    <li>6C49 physically in Paint (no longer “deliver”).</li>
+    <li>6C50 moved to ground-check; DOC-check blocker added.</li>
+    <li>Replaced 6C27 item with <b>6F27</b> (transfer today).</li>
+    <li>Added new priority for 6C57 wing to Strip.</li>
+    <li>6C53 ECD slipped to 7/31; DWL noted.</li>
+    <li>6F30 prime date slid to 8/01 after manpower loss.</li>
+    <li>Updated day-counts &amp; statuses for 6C55-57, 59, 62, 64.</li>
+    <li>Parts hot-list refreshed; stab kits for 6C60 added.</li>
+    <li>Engine-truss and strut-tube items removed to weekly tracker.</li>
+    <li>Firewall yoke-fitting search &amp; spare-wing PN-232 status added.</li>
+  </ul>
+
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  /* click */
-  document.getElementById('generatePdf').addEventListener('click', async () => {
-    try {
-      /* 1. template */
-      const tmpl = await (await fetch('blank.pdf')).arrayBuffer();
-      const { PDFDocument, StandardFonts, rgb } = PDFLib;
-      const pdf  = await PDFDocument.load(tmpl);
-      const font = await pdf.embedFont(StandardFonts.Helvetica);
-      const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
-
-      /* 2. pull data from DOM ------------------------------------------- */
-      function extract(sectionId, groupTitle){
-        const titleEl = [...document.querySelectorAll(`#${sectionId} .group-title`)]
-                        .find(el => el.textContent.trim() === groupTitle);
-        if(!titleEl) return null;
-        const table  = titleEl.nextElementSibling;
-        const head   = [...table.querySelectorAll('th')].map(th=>th.textContent.trim());
-        const rows   = [...table.querySelectorAll('tr')]
-                      .filter(r=>r.querySelectorAll('td').length)
-                      .map(r=>[...r.querySelectorAll('td')].map(td=>td.textContent.trim()));
-        const desc   = table.querySelector('.desc-row td')?.textContent.trim()||'';
-        return {head,rows,desc};
-      }
-
-      const dataBlocks = [
-        {section:'overabove',title:'T-44 C'},
-        {section:'overabove',title:'T-6 A/B'},
-        {section:'overabove',title:'USAF T-6 A/B'},
-        {section:'kitting',  title:'T-44 C'},
-        {section:'kitting',  title:'T-6 A/B'},
-        {section:'kitting',  title:'USAF T-6 A/B'}
-      ].map(b => ({...b,...extract(b.section,b.title)}))
-       .filter(b=>b.head);          // drop nulls
-
-      /* 3. drawing utils ------------------------------------------------- */
-      const colWidthsOA = [40,60,85,45,45,90,90,90,40];   // Over&Above widths
-      const colWidthsKT = [40,60,85,45,45,90,90,90,40];   // Kitting widths (same here)
-
-      function drawTable(page,startX,startY,colWidths,rowHeight,header,rows){
-        const endX   = startX + colWidths.reduce((a,b)=>a+b,0);
-        let   y      = startY;
-
-        /* header bg */
-        page.drawRectangle({x:startX,y:y-rowHeight,width:endX-startX,height:rowHeight,
-                            color:rgb(0.87,0.93,0.96)});
-        /* header text */
-        let cursorX = startX;
-        header.forEach((txt,i)=>{
-          page.drawText(txt,{x:cursorX+2,y:y-rowHeight+4,size:8,font:bold});
-          cursorX += colWidths[i];
-        });
-        /* header bottom line */
-        page.drawLine({start:{x:startX,y:y-rowHeight},
-                       end  :{x:endX  ,y:y-rowHeight},
-                       thickness:0.5});
-
-        /* data rows */
-        y -= rowHeight;
-        rows.forEach(r=>{
-          cursorX=startX;
-          r.forEach((txt,i)=>{
-            page.drawText(txt,{x:cursorX+2,y:y-rowHeight+4,size:8,font:font});
-            cursorX += colWidths[i];
-          });
-          /* row bottom line */
-          page.drawLine({start:{x:startX,y:y-rowHeight},
-                         end  :{x:endX  ,y:y-rowHeight},
-                         thickness:0.3});
-          y -= rowHeight;
-          /* add new page if needed */
-          if (y - rowHeight < 50){
-            page = pdf.addPage();
-            y    = page.getSize().height - 50;
-            page.drawLine({start:{x:startX,y:y},
-                           end  :{x:endX  ,y:y},
-                           thickness:0.3});
-          }
-        });
-        /* vertical lines */
-        cursorX=startX;
-        colWidths.forEach(w=>{
-          page.drawLine({start:{x:cursorX,y:startY},
-                         end  :{x:cursorX,y:y},
-                         thickness:0.3});
-          cursorX += w;
-        });
-        page.drawLine({start:{x:endX,y:startY},
-                       end  :{x:endX,y:y},
-                       thickness:0.3});
-        return {page,nextY:y};
-      }
-
-      /* 4. iterate blocks ----------------------------------------------- */
-      let page = pdf.getPages()[0];
-      let y    = page.getSize().height - 80;
-      const x  = 40;
-      const gap= 14;
-      const rowH=16;
-
-      dataBlocks.forEach(b=>{
-        /* group title */
-        page.drawText(b.title,{x,y:y+8,size:12,font:bold});
-        if(b.desc){
-          y -= 12;
-          page.drawText(b.desc,{x,y:y+2,size:8,font:font});
-        }
-        y -= (b.desc?rowH:rowH/2);
-
-        const widths = b.section==='overabove'?colWidthsOA:colWidthsKT;
-        const drawn  = drawTable(page,x,y,widths,rowH,b.head,b.rows);
-        page = drawn.page;
-        y    = drawn.nextY - gap;
-        if (y < 120){ page = pdf.addPage(); y = page.getSize().height - 80; }
+/* Typewriter reveal (1.5 s total) ------------------------------------- */
+(function(){
+  const TOTAL = 1500, STAG = 0.12, picks = ["h1","h2","ul","table"], lines=[];
+  function collect(){
+    picks.forEach(sel=>{
+      document.querySelectorAll(sel).forEach(el=>{
+        if(el.tagName==="TABLE"){
+          if(el.tHead) Array.from(el.tHead.rows).forEach(r=>lines.push(r));
+          Array.from(el.tBodies).forEach(tb=>Array.from(tb.rows).forEach(r=>lines.push(r)));
+        }else if(el.tagName==="UL"||el.tagName==="OL"){
+          Array.from(el.children).forEach(li=>lines.push(li));
+        }else{lines.push(el);}
       });
-
-      /* 5. download ------------------------------------------------------ */
-      const bytes = await pdf.save();
-      const blob  = new Blob([bytes],{type:'application/pdf'});
-      const link  = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'filled-grid.pdf';
-      link.click();
-    }catch(e){console.error(e);alert(e.message);}
-  });
-});
-</script>
- 
-</body>
-</html>
+    });
+  }
+  function wrap(){
+    const walkerFlag=NodeFilter.SHOW_TEXT;
+    lines.forEach(c=>{
+      const w=document.createTreeWalker(c,walkerFlag,null), tn=[];
+      while(w.nextNode()) tn.push(w.currentNode);
+      tn.forEach(t=>{
+        if(!t.textContent.trim()) return;
+        const f=document.createDocumentFragment();
+        [...t.textContent].forEach(ch=>{
+          const s=document.createElement("span");
+          s.textContent=ch; s.
