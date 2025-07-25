@@ -154,4 +154,32 @@
         const f=document.createDocumentFragment();
         [...t.textContent].forEach(ch=>{
           const s=document.createElement("span");
-          s.textContent=ch; s.
+          s.textContent=ch; s.style.opacity="0"; f.appendChild(s);
+        });
+        t.parentNode.replaceChild(f,t);
+      });
+    });
+  }
+  function animate(){
+    const arr=lines.map((el,i)=>({spans:[...el.querySelectorAll("span")],i}));
+    const maxDelay=TOTAL*STAG,start=performance.now();
+    function tick(now){
+      const e=now-start; let done=true;
+      arr.forEach(o=>{
+        const d=(o.i/arr.length)*maxDelay,t=Math.min(Math.max((e-d)/(TOTAL-d),0),1);
+        if(t<1) done=false;
+        const show=Math.floor(t*o.spans.length);
+        for(let k=0;k<show;k++) if(o.spans[k].style.opacity!=="1") o.spans[k].style.opacity="1";
+      });
+      if(!done&&e<TOTAL+200) requestAnimationFrame(tick);
+      else arr.forEach(o=>o.spans.forEach(s=>s.style.opacity="1"));
+    }
+    requestAnimationFrame(tick);
+  }
+  document.addEventListener("DOMContentLoaded",()=>{collect();wrap();animate();});
+})();
+</script>
+</body>
+</html>
+
+  
